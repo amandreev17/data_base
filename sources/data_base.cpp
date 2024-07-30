@@ -147,7 +147,7 @@ int main() {
                     student = el.getStudents();
                 }
             }
-            student.sort([=](auto st1, auto st2) {return st1.getName() < st2.getName();});
+            student.sort([=](Student st1, Student st2) {return st1.getName() < st2.getName();});
             changeGroups(flag, groups, student, group);
         }
         

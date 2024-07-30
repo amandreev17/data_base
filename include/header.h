@@ -97,15 +97,15 @@ bool is_number(const std::string& s)
 }
 
 int checkF(std::ifstream& in) {
+    std::string n;
     try {
-        std::string n; in >> n;
+        in >> n;
         if (!is_number(n)) {
             throw std::runtime_error("Введите число");
         }
         if (atoi(n.c_str()) > 13 || atoi(n.c_str()) < 1) {
             throw std::out_of_range("Введите цифру от 2 до 5");
         }
-        return atoi(n.c_str());
     }
     catch(const std::runtime_error& ex) {
         std::cout << "Ошибка: " << ex.what() << std::endl;
@@ -113,31 +113,32 @@ int checkF(std::ifstream& in) {
     catch(const std::out_of_range& ex) {
         std::cout << "Ошибка: " << ex.what() << std::endl;
     }
+    return atoi(n.c_str());
 }
 
 int menu() {
+    std::cout << "1. Добавить студента" << std::endl;
+    std::cout << "2. Редактировать оценки студента" << std::endl;
+    std::cout << "3. Удалить студента из группы" << std::endl;
+    std::cout << "4. Просмотр групп" << std::endl;
+    std::cout << "5. Средний балл по одной дисциплины для группы" << std::endl;
+    std::cout << "6. Средний балл по всем дисциплинам для группы" << std::endl;
+    std::cout << "7. Отличники" << std::endl;
+    std::cout << "8. Должники" << std::endl;
+    std::cout << "9. Сортировка по ФИО в группе" << std::endl;
+    std::cout << "10. Запись значений в файл" << std::endl;
+    std::cout << "11. Чтение значений из файла" << std::endl;
+    std::cout << "12. Выход из программы" << std::endl;
+    std::cout << "Введите цифру:" << std::endl;
+    std::string n;
     try {
-        std::cout << "1. Добавить студента" << std::endl;
-        std::cout << "2. Редактировать оценки студента" << std::endl;
-        std::cout << "3. Удалить студента из группы" << std::endl;
-        std::cout << "4. Просмотр групп" << std::endl;
-        std::cout << "5. Средний балл по одной дисциплины для группы" << std::endl;
-        std::cout << "6. Средний балл по всем дисциплинам для группы" << std::endl;
-        std::cout << "7. Отличники" << std::endl;
-        std::cout << "8. Должники" << std::endl;
-        std::cout << "9. Сортировка по ФИО в группе" << std::endl;
-        std::cout << "10. Запись значений в файл" << std::endl;
-        std::cout << "11. Чтение значений из файла" << std::endl;
-        std::cout << "12. Выход из программы" << std::endl;
-        std::cout << "Введите цифру:" << std::endl;
-        std::string n; std::cin >> n;
+        std::cin >> n;
         if (!is_number(n)) {
             throw std::runtime_error("Введите число");
         }
         if (atoi(n.c_str()) > 13 || atoi(n.c_str()) < 1) {
             throw std::out_of_range("Введите цифру от 1 до 10");
         }
-        return atoi(n.c_str());
     }
     catch(const std::runtime_error& ex) {
         std::cout << "Ошибка: " << ex.what() << std::endl;
@@ -145,27 +146,27 @@ int menu() {
     catch(const std::out_of_range& ex) {
         std::cout << "Ошибка: " << ex.what() << std::endl;
     }
+    return atoi(n.c_str());
 }
 
 int menu1(std::string& group) {
+    std::cout << "Введите группу" << std::endl;
+    std::cin.ignore();
+    std::cout << "Группа: "; std::getline(std::cin, group);
+    std::cout << "Введите номер дисциплины: " << std::endl;
+    std::cout << "1. Математика" << std::endl;
+    std::cout << "2. АЯ" << std::endl;
+    std::cout << "3. Физика" << std::endl;
+    std::cout << "Предмет: ";
+    std::string n;
     try {
-        std::string group;
-        std::cout << "Введите группу" << std::endl;
-        std::cin.ignore();
-        std::cout << "Группа: "; std::getline(std::cin, group);
-        std::cout << "Введите номер дисциплины: " << std::endl;
-        std::cout << "1. Математика" << std::endl;
-        std::cout << "2. АЯ" << std::endl;
-        std::cout << "3. Физика" << std::endl;
-        std::cout << "Предмет: ";
-        std::string n; std::cin >> n;
+        std::cin >> n;
         if (!is_number(n)) {
             throw std::runtime_error("Введите число");
         }
         if (atoi(n.c_str()) > 13 || atoi(n.c_str()) < 1) {
             throw std::out_of_range("Введите цифру от 1 до 10");
         }
-        return atoi(n.c_str());
     }
     catch(const std::runtime_error& ex) {
         std::cout << "Ошибка: " << ex.what() << std::endl;
@@ -173,6 +174,7 @@ int menu1(std::string& group) {
     catch(const std::out_of_range& ex) {
         std::cout << "Ошибка: " << ex.what() << std::endl;
     }
+    return atoi(n.c_str());
 }
 #endif
 

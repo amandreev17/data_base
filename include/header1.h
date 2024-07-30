@@ -98,7 +98,7 @@ std::list<Student> Group::getStudents() {
 }
 
 void Group::changeGroup(Student& st) {
-    auto iter = std::find_if(_group.begin(), _group.end(), [&st](auto stud) {return st.getName() == stud.getName();});
+    auto iter = std::find_if(_group.begin(), _group.end(), [&st](Student stud) {return st.getName() == stud.getName();});
     if (iter != _group.end()) {
         _group.erase(iter);
         _group.push_back(st);
