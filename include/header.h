@@ -6,7 +6,7 @@
 #include <mutex>
 #include <thread>
 #include <fstream>
-
+#include <vector>
 
 #ifndef HEADER_H
 #define HEADER_H
