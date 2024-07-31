@@ -8,3 +8,8 @@ include_directories(include)
 set(GLOB SRC_SRC "sources/data_base.cpp")
 
 add_executable(data sources/data_base.cpp)
+
+enable_testing()
+add_subdirectory(third-party)
+add_executable(test_app tests/test.cpp)
+target_link_libraries(test_app gtest_main)
