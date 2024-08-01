@@ -45,9 +45,12 @@ TEST(Group, middleMarks) {
 TEST(Group, changeGroup) {
     Student st("Artyom", "IU8-35", {5, 5, 5});
     Student st1("Sasha", "IU8-35", {4, 4, 4});
-    Student st3("Sasha", "IU8-35", {3, 4, 4});
+    Student st3("Artyom", "IU8-35", {4, 5, 5});
     Group gr("IU8-35", {st, st1});
     gr.changeGroup(st3);
     EXPECT_EQ(gr.getStudents().size(), 2);
-    EXPECT_EQ((*gr.getStudents().end()).sumMarks(1), 3);
+    for (auto el: gr.getStudents()) {
+        EXPECT_EQ(el.sumMarks(1), 4);
+        break;
+    }
 }
